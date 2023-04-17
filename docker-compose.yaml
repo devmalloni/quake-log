@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  quake-log-reader:
+    build:
+      context: .
+    volumes:
+      - type: bind
+        source: ./contrib
+        target: /etc/contrib
+    command: read --source=/etc/contrib/quake-log.txt
+    restart: on-failure
